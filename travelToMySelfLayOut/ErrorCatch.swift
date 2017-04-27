@@ -10,4 +10,5 @@ import Foundation
 
 enum ErrorCatch {
     case cantNotFindCountryOnGooglePlace
+    case cellContentNotExist
 }

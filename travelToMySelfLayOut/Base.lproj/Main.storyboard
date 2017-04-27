@@ -191,7 +191,7 @@
         <!--建議規劃-->
         <scene sceneID="u3i-HH-EbP">
             <objects>
-                <viewController id="zBW-Xj-tJi" sceneMemberID="viewController">
+                <viewController id="zBW-Xj-tJi" customClass="RearrangeScheduleVC" customModule="travelToMySelfLayOut" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h5H-n1-vT5"/>
                         <viewControllerLayoutGuide type="bottom" id="zTE-qj-CKI"/>
@@ -216,7 +216,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2cr-9B-56A">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DateCell" id="2cr-9B-56A" customClass="DateCell" customModule="travelToMySelfLayOut" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -226,6 +226,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypW-HH-t1H">
                                                     <rect key="frame" x="350" y="6" width="30" height="30"/>
                                                     <state key="normal" title="add"/>
+                                                    <connections>
+                                                        <action selector="addNewTripDay:" destination="2cr-9B-56A" eventType="touchUpInside" id="hZT-u4-M8y"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="第一天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3M-A3-RuI">
                                                     <rect key="frame" x="182" y="11" width="52" height="20"/>
@@ -238,8 +241,12 @@
                                         <constraints>
                                             <constraint firstItem="ypW-HH-t1H" firstAttribute="centerY" secondItem="x3M-A3-RuI" secondAttribute="centerY" id="IR9-Gl-Anb"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="addNewTripDayButton" destination="ypW-HH-t1H" id="1AQ-LP-ivR"/>
+                                            <outlet property="dateLabel" destination="x3M-A3-RuI" id="YpS-9f-s1p"/>
+                                        </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Uwl-WS-ve4">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ScheduleAndTrafficCell" id="Uwl-WS-ve4" customClass="ScheduleAndTrafficCell" customModule="travelToMySelfLayOut" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="52" width="414" height="119"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -267,6 +274,13 @@
                                                         <constraint firstAttribute="width" secondItem="Uiw-7V-kHo" secondAttribute="height" multiplier="4:7" id="BbE-6t-T5G"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="細節" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4T-zg-cuD">
+                                                    <rect key="frame" x="111" y="20" width="52" height="21.000000000000007"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -278,8 +292,15 @@
                                             <constraint firstItem="5Rn-dl-4hH" firstAttribute="leading" secondItem="Uiw-7V-kHo" secondAttribute="trailing" constant="10" id="xLL-Cp-37g"/>
                                         </constraints>
                                         <size key="customSize" width="414" height="119"/>
+                                        <connections>
+                                            <outlet property="arrow" destination="Uiw-7V-kHo" id="ND8-TU-wyX"/>
+                                            <outlet property="trafficInf" destination="5Rn-dl-4hH" id="466-P5-fXZ"/>
+                                            <outlet property="viewPointBGBlock" destination="zfu-IO-Wby" id="Ue7-00-ncw"/>
+                                            <outlet property="viewPointDetail" destination="K4T-zg-cuD" id="Z5X-XC-dhe"/>
+                                            <outlet property="viewPointName" destination="QKc-9y-qD5" id="HT4-su-ljQ"/>
+                                        </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gJe-kw-0UG">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gJe-kw-0UG" customClass="DateCell" customModule="travelToMySelfLayOut" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="181" width="414" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -305,7 +326,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="建議規劃" id="1HM-Yj-tPB"/>
+                    <navigationItem key="navigationItem" title="建議規劃" id="1HM-Yj-tPB">
+                        <barButtonItem key="rightBarButtonItem" title="規劃完成" id="w23-Ab-wTt">
+                            <connections>
+                                <action selector="finishAndNextPage:" destination="zBW-Xj-tJi" id="wg5-wo-eEY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="travelPathWebView" destination="oLh-uL-2cb" id="rZ9-QO-Srm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ma2-U7-qgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
