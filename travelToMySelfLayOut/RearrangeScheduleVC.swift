@@ -14,6 +14,17 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
     // key setting
     let keyOfDateCell = "dailyScheduleSetting"
     let keyOfScheduleAndTrafficCell = "scheduleArray"
+    let nameOfFinalScheduleStoryBoard = "FinalSchedule"
+    let nameOfFinalScheduleVC = "FinalScheduleVC"
+    let reuseIdForDateTypeCell = "DateCell"
+    let reuseIdForscheduleAndTrafficCell = "scheduleAndTrafficCell"
+    let currentPageDotTintColor = UIColor.black
+    let otherPageDotTintColor = UIColor.lightGray
+    
+    
+    var cellContentArray = [CellContent]()
+    @IBOutlet weak var travelPathWebView: UIWebView!
+    
     
     //----------testArea--------v
     
@@ -30,11 +41,6 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
     }
     //----------testArea--------^
     
-    
-    
-    var cellContentArray = [CellContent]()
-    @IBOutlet weak var travelPathWebView: UIWebView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +55,7 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBAction func finishAndNextPage(_ sender: UIBarButtonItem) {
-        var tmpArray = [ScheduleAndTrafficCellContent]()
+        var tmpVCArray = [UIViewController]()
         
         // 先抓出總共有幾天
         let daysCounting = countTripDays(inputArray: cellContentArray)
@@ -58,10 +64,18 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
         let nextPageCellContentArray = seperateArrayByDate(intputArray: cellContentArray)
         
         //在於同圈迴圈中將ＶＣ作出來
+        let sb = UIStoryboard(name: nameOfFinalScheduleStoryBoard, bundle: nil)
+        let vcArray = produceVCArray(myStoryBoard: sb, dataArray: nextPageCellContentArray)
         
-        //在將全部VC帶入新的Array中
+        //設定scrollView
+        let scrollVCProductor = ProduceScrollViewWithVCArray(vcArrayInput: vcArray)
+        scrollVCProductor.pageControlDotExist = true
+        scrollVCProductor.currentPageIndicatorTintColorSetting = currentPageDotTintColor
+        scrollVCProductor.otherPageIndicatorTintColorSetting = otherPageDotTintColor
         
-        //最後輸出
+        //輸出scrollView
+        let scrollView = scrollVCProductor.pagingScrollingVC
+        present(scrollView!, animated: true, completion: nil)
         
     }
     
@@ -77,7 +91,14 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    //將array丟入, 並回傳分類後的array, 其中天數的key為dailyScheduleSetting, 行程的為scheduleArray
+    
+    /// Produce the cellContent for next Page
+    ///
+    /// - Parameter intputArray: the cellContent Array including dateType and scheduleTrafficType cell, whitch we use them with different purples
+    /// - Returns: 
+    ///     - The Array with dictionary type contents:
+    ///         - the contens with key - "dailyScheduleSetting" : CellContent with dateType. 
+    ///         - The contens with key - "scheduleArray" : CellContent with dateType.
     private func seperateArrayByDate (intputArray:[CellContent]) -> [[String:[AnyObject]]] {
         
         //tmpObj
@@ -109,7 +130,27 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
         }
         return seperateFinishArray
     }
-
+    
+    
+    /// To produce ViewController array that will put into the ScrollView
+    ///
+    /// - Parameters:
+    ///   - myStoryBoard: The StoryBoard where the VC you wanna instantiating is
+    ///   - dataArray: The datas to setting the VC's content
+    /// - Returns: An array containing all VC you want to instantiate
+    func produceVCArray (myStoryBoard: UIStoryboard,dataArray:[[String:[AnyObject]]]) -> [UIViewController] {
+        //將Array內資料套出, 將date用於設定相關資料, 將array用於匯入下一面
+        
+        for vcContent in dataArray {
+            
+            let tmpVC = myStoryBoard.instantiateViewController(withIdentifier: nameOfFinalScheduleVC)
+            
+            // 設定ＶＣ的label等細節
+            
+            //
+        }
+        
+    }
     
     
 }
@@ -127,7 +168,7 @@ extension RearrangeScheduleVC : UICollectionViewDelegate, UICollectionViewDataSo
             
         //for presenting Date
         case .dateCellType:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as! DateCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdForDateTypeCell, for: indexPath) as! DateCell
             // if is the 1st day cell, show the adding days button
             if indexPath.item == 0{
                 cell.addNewTripDayButton.isHidden = false
@@ -139,7 +180,7 @@ extension RearrangeScheduleVC : UICollectionViewDelegate, UICollectionViewDataSo
             
         //for presenting viewPoint and traffic information
         case .scheduleAndTrafficCellType:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "scheduleAndTrafficCell", for: indexPath) as! ScheduleAndTrafficCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdForscheduleAndTrafficCell, for: indexPath) as! ScheduleAndTrafficCell
             // setting the label text
             let cellContent = cellContentArray[indexPath.item] as! ScheduleAndTrafficCellContent
             cell.viewPointName.text = cellContent.viewPointName

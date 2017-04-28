@@ -42,6 +42,7 @@ class CellContent : NSObject {
 class DateCellContent : CellContent {
     var date : Int
     var dateStringForLabel : String
+    var colorTypeForScheduleOutoutPage : ColorSetting!
     required init(dateValue:Int) {
         date = dateValue
         dateStringForLabel = "第\(date)天"
@@ -63,4 +64,8 @@ class ScheduleAndTrafficCellContent : CellContent {
 
 enum CustomerCellType {
     case dateCellType, scheduleAndTrafficCellType
+}
+
+class ColorSetting {
+    
 }
