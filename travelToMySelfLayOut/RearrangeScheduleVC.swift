@@ -10,6 +10,11 @@ import UIKit
 
 class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
     
+    
+    // key setting
+    let keyOfDateCell = "dailyScheduleSetting"
+    let keyOfScheduleAndTrafficCell = "scheduleArray"
+    
     //----------testArea--------v
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -23,7 +28,6 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     //----------testArea--------^
     
     
@@ -45,14 +49,65 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBAction func finishAndNextPage(_ sender: UIBarButtonItem) {
-        //先將Array照天數切開
-        //再將每天的內容帶入輸出中
-        //最後將資料輸出
+        var tmpArray = [ScheduleAndTrafficCellContent]()
+        
+        // 先抓出總共有幾天
+        let daysCounting = countTripDays(inputArray: cellContentArray)
+        
+        //在尋訪Array的物件並切割天數func的次數
+        let nextPageCellContentArray = seperateArrayByDate(intputArray: cellContentArray)
+        
+        //在於同圈迴圈中將ＶＣ作出來
+        
+        //在將全部VC帶入新的Array中
+        
+        //最後輸出
+        
     }
     
-    private func seperateArrayByDate (intputArray:[CellContent]) -> (remainingOfInputArray:[CellContent], oneDayScheduleArray:[ScheduleAndTrafficCellContent])! {
-        //....
-        return nil
+    //確認天數
+    private func countTripDays(inputArray:[CellContent]) -> Int{
+        var daysCounting = 0
+        for obj in inputArray {
+            if (obj is DateCellContent){
+                daysCounting += 1
+            }
+        }
+        return daysCounting
+    }
+    
+    
+    //將array丟入, 並回傳分類後的array, 其中天數的key為dailyScheduleSetting, 行程的為scheduleArray
+    private func seperateArrayByDate (intputArray:[CellContent]) -> [[String:[AnyObject]]] {
+        
+        //tmpObj
+        var tmpArray = [ScheduleAndTrafficCellContent]()
+        var tmpDictionary = [String:[CellContent]]()
+        var isFirstObj = true
+        
+        //outputArray
+        var seperateFinishArray = [[String:[AnyObject]]]()
+        
+        
+        for obj in intputArray {
+            if obj is DateCellContent && isFirstObj {
+                //如果是第一次, 將day的資訊丟到tmpdic
+                tmpDictionary = [keyOfDateCell:[obj]]
+                isFirstObj = false
+            
+            } else if obj is DateCellContent {
+                //如果是天數type, 將之前的tmpDic＆tmpArray彙整到一天頁面的物件, 並將tmpDic更新為現在這個obj
+                seperateFinishArray += [tmpDictionary,[keyOfScheduleAndTrafficCell:tmpArray]]
+                
+                tmpDictionary = [keyOfDateCell:[obj]]
+                
+            } else {
+                //是交通＆景點的type, 存到tmpArray中
+                let tmpObj = obj as! ScheduleAndTrafficCellContent
+                tmpArray += [tmpObj]
+            }
+        }
+        return seperateFinishArray
     }
 
     

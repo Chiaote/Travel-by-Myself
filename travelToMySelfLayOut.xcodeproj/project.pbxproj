@@ -49,6 +49,7 @@
 		2241170B1EA714BB00488BBD /* CallGoogleDirectionAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallGoogleDirectionAPI.swift; sourceTree = "<group>"; };
 		2241170D1EA714E100488BBD /* CallGoogleMapAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallGoogleMapAPI.swift; sourceTree = "<group>"; };
 		2241170F1EA7151F00488BBD /* BestPathCaculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestPathCaculator.swift; sourceTree = "<group>"; };
+		22E0700F1EB2E620001BB738 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		22ED5FFC1EA6FC410036FCE9 /* ViewPointAndPathStoraged.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPointAndPathStoraged.swift; sourceTree = "<group>"; };
 		22ED60021EA6FF490036FCE9 /* viewPointTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewPointTableViewCell.swift; sourceTree = "<group>"; };
 		22F0CFD01E94F408008999FB /* travelToMySelfLayOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelToMySelfLayOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +143,7 @@
 		22ED60011EA6FEB50036FCE9 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				22E0700F1EB2E620001BB738 /* MyPlayground.playground */,
 				22F0CFD31E94F408008999FB /* AppDelegate.swift */,
 				22F0CFDA1E94F408008999FB /* Assets.xcassets */,
 				22F0CFDC1E94F408008999FB /* LaunchScreen.storyboard */,
