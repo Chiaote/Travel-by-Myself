@@ -10,13 +10,13 @@
 		221F325F1EB0C35700447E24 /* AddViewPointVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F325E1EB0C35700447E24 /* AddViewPointVC.swift */; };
 		221F32611EB0C37700447E24 /* SettingStartPointVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F32601EB0C37700447E24 /* SettingStartPointVC.swift */; };
 		221F32651EB0C4A000447E24 /* FinalSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221F32641EB0C4A000447E24 /* FinalSchedule.storyboard */; };
-		221F32671EB0C5E300447E24 /* FinalScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F32661EB0C5E300447E24 /* FinalScheduleVC.swift */; };
 		221F32691EB0C61E00447E24 /* ViewPointDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F32681EB0C61E00447E24 /* ViewPointDetailVC.swift */; };
 		221F326B1EB0C64100447E24 /* RearrangeScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F326A1EB0C64100447E24 /* RearrangeScheduleVC.swift */; };
 		221F326E1EB0C87F00447E24 /* ViewPointListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F326D1EB0C87F00447E24 /* ViewPointListCell.swift */; };
 		221F32711EB0C96300447E24 /* RearrangeScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F32701EB0C96300447E24 /* RearrangeScheduleCell.swift */; };
 		221F32731EB0D31600447E24 /* ErrorCatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F32721EB0D31600447E24 /* ErrorCatch.swift */; };
 		221F32751EB0D5FF00447E24 /* ProduceScrollViewWithVCArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F32741EB0D5FF00447E24 /* ProduceScrollViewWithVCArray.swift */; };
+		222F6B961EB35B0500202C8E /* FinalScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F6B951EB35B0500202C8E /* FinalScheduleVC.swift */; };
 		223B2C4B1EA87F4F00AD42DA /* FindTrafficTimeAndWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223B2C4A1EA87F4F00AD42DA /* FindTrafficTimeAndWay.swift */; };
 		2241170A1EA7149E00488BBD /* CallGooglePlaceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224117091EA7149E00488BBD /* CallGooglePlaceAPI.swift */; };
 		2241170C1EA714BB00488BBD /* CallGoogleDirectionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241170B1EA714BB00488BBD /* CallGoogleDirectionAPI.swift */; };
@@ -37,13 +37,13 @@
 		221F325E1EB0C35700447E24 /* AddViewPointVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewPointVC.swift; sourceTree = "<group>"; };
 		221F32601EB0C37700447E24 /* SettingStartPointVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingStartPointVC.swift; sourceTree = "<group>"; };
 		221F32641EB0C4A000447E24 /* FinalSchedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FinalSchedule.storyboard; sourceTree = "<group>"; };
-		221F32661EB0C5E300447E24 /* FinalScheduleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalScheduleVC.swift; sourceTree = "<group>"; };
 		221F32681EB0C61E00447E24 /* ViewPointDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPointDetailVC.swift; sourceTree = "<group>"; };
 		221F326A1EB0C64100447E24 /* RearrangeScheduleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RearrangeScheduleVC.swift; sourceTree = "<group>"; };
 		221F326D1EB0C87F00447E24 /* ViewPointListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPointListCell.swift; sourceTree = "<group>"; };
 		221F32701EB0C96300447E24 /* RearrangeScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RearrangeScheduleCell.swift; sourceTree = "<group>"; };
 		221F32721EB0D31600447E24 /* ErrorCatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCatch.swift; sourceTree = "<group>"; };
 		221F32741EB0D5FF00447E24 /* ProduceScrollViewWithVCArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProduceScrollViewWithVCArray.swift; sourceTree = "<group>"; };
+		222F6B951EB35B0500202C8E /* FinalScheduleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalScheduleVC.swift; sourceTree = "<group>"; };
 		223B2C4A1EA87F4F00AD42DA /* FindTrafficTimeAndWay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindTrafficTimeAndWay.swift; sourceTree = "<group>"; };
 		224117091EA7149E00488BBD /* CallGooglePlaceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallGooglePlaceAPI.swift; sourceTree = "<group>"; };
 		2241170B1EA714BB00488BBD /* CallGoogleDirectionAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallGoogleDirectionAPI.swift; sourceTree = "<group>"; };
@@ -120,13 +120,13 @@
 		22ED5FFF1EA6FEA10036FCE9 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				222F6B951EB35B0500202C8E /* FinalScheduleVC.swift */,
 				221F326F1EB0C89A00447E24 /* RearrangeSchedule */,
 				221F32681EB0C61E00447E24 /* ViewPointDetailVC.swift */,
 				221F32601EB0C37700447E24 /* SettingStartPointVC.swift */,
 				221F326C1EB0C83900447E24 /* AddViewPoint */,
 				22F0CFD51E94F408008999FB /* ViewController.swift */,
 				22ED60021EA6FF490036FCE9 /* viewPointTableViewCell.swift */,
-				221F32661EB0C5E300447E24 /* FinalScheduleVC.swift */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -315,9 +315,9 @@
 			files = (
 				22F0CFD61E94F408008999FB /* ViewController.swift in Sources */,
 				223B2C4B1EA87F4F00AD42DA /* FindTrafficTimeAndWay.swift in Sources */,
+				222F6B961EB35B0500202C8E /* FinalScheduleVC.swift in Sources */,
 				221F32731EB0D31600447E24 /* ErrorCatch.swift in Sources */,
 				22ED5FFD1EA6FC410036FCE9 /* ViewPointAndPathStoraged.swift in Sources */,
-				221F32671EB0C5E300447E24 /* FinalScheduleVC.swift in Sources */,
 				22F0CFD41E94F408008999FB /* AppDelegate.swift in Sources */,
 				224117101EA7151F00488BBD /* BestPathCaculator.swift in Sources */,
 				221F32751EB0D5FF00447E24 /* ProduceScrollViewWithVCArray.swift in Sources */,

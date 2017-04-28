@@ -26,20 +26,20 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var travelPathWebView: UIWebView!
     
     
-    //----------testArea--------v
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        
-        var testA = DateCellContent(dateValue: 1)
-        var testB = ScheduleAndTrafficCellContent(nameOfViewPoint: <#String#>, transportationMode: <#String#>, trafficTime: <#String#>)
-        cellContentArray.append(testA)
-        cellContentArray.append(testB)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    //----------testArea--------^
+//    //----------testArea--------v
+//    
+//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//        var testA = DateCellContent(dateValue: 1)
+//        var testB = ScheduleAndTrafficCellContent(nameOfViewPoint: "jp", transportationMode: "car", trafficTime: "10min")
+//        cellContentArray.append(testA)
+//        cellContentArray.append(testB)
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    //----------testArea--------^
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,16 +79,16 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    //確認天數
-    private func countTripDays(inputArray:[CellContent]) -> Int{
-        var daysCounting = 0
-        for obj in inputArray {
-            if (obj is DateCellContent){
-                daysCounting += 1
-            }
-        }
-        return daysCounting
-    }
+//    //確認天數
+//    private func countTripDays(inputArray:[CellContent]) -> Int{
+//        var daysCounting = 0
+//        for obj in inputArray {
+//            if (obj is DateCellContent){
+//                daysCounting += 1
+//            }
+//        }
+//        return daysCounting
+//    }
     
     
     
@@ -140,16 +140,16 @@ class RearrangeScheduleVC: UIViewController, UIGestureRecognizerDelegate {
     /// - Returns: An array containing all VC you want to instantiate
     func produceVCArray (myStoryBoard: UIStoryboard,dataArray:[[String:[AnyObject]]]) -> [UIViewController] {
         //將Array內資料套出, 將date用於設定相關資料, 將array用於匯入下一面
-        
+        var tmpVCArray = [UIViewController]()
         for vcContent in dataArray {
-            
-            let tmpVC = myStoryBoard.instantiateViewController(withIdentifier: nameOfFinalScheduleVC)
-            
-            // 設定ＶＣ的label等細節
-            
-            //
+            // 實體化ＶＣ
+            let tmpVC = myStoryBoard.instantiateViewController(withIdentifier: nameOfFinalScheduleVC) as! FinalScheduleVC
+            // 將資料喂給ＶＣ
+                tmpVC.contantDataStorage = vcContent
+            // 將ＶＣ帶入array
+                tmpVCArray += [tmpVC]
         }
-        
+        return tmpVCArray
     }
     
     
@@ -192,7 +192,7 @@ extension RearrangeScheduleVC : UICollectionViewDelegate, UICollectionViewDataSo
         
         //CellType unknown or Type wrong
         default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdForDateTypeCell, for: indexPath)
             return cell
         }
     }

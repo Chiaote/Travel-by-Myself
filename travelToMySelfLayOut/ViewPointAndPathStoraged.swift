@@ -11,6 +11,7 @@ import Foundation
 
 class ViewPointAndPathStoraged: NSObject {
     //打包資料
+    /*
     func unPackData(<#parameters#>) -> <#return type#> {
         <#function body#>
     }
@@ -52,5 +53,5 @@ class ViewPointAndPathStoraged: NSObject {
         return result 
     }
     
-
+*/
 }

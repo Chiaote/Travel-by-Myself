@@ -35,10 +35,12 @@ class DateCell: UICollectionViewCell {
     
 }
 
+
 class CellContent : NSObject {
     var type:CustomerCellType!
 }
 
+/// For Storing the cell content about the DateType cell.
 class DateCellContent : CellContent {
     var date : Int
     var dateStringForLabel : String
@@ -49,6 +51,8 @@ class DateCellContent : CellContent {
     }
 }
 
+
+/// For Storing the cell content about the ScheduleAndTrafficType cell.
 class ScheduleAndTrafficCellContent : CellContent {
     var transportationMode : String!
     var trafficTime : String!
@@ -62,10 +66,17 @@ class ScheduleAndTrafficCellContent : CellContent {
     }
 }
 
+
+/// For checking the cell content's type.
+///
+/// - dateCellType: Contents for DateType cell.
+/// - scheduleAndTrafficCellType: Contents for ScheduleAndTrafficCellContent cell
 enum CustomerCellType {
     case dateCellType, scheduleAndTrafficCellType
 }
 
+
+/// For define the color type of the view.
 class ColorSetting {
     
 }
